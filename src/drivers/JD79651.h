@@ -45,8 +45,14 @@ public:
                    int16_t SRCS, int16_t BUSY = -1, SPIClass *spi = &SPI);
 
   void begin(bool reset = true);
+  void priv_setup(); // hack!
+  void set_buff(uint8_t * buff);
+  void set_buff_memprog(uint8_t * buff);
+  void private_display();
+  void private_display2();
   void powerUp();
   void update(void);
+  void display();  // hgiang: override
   void updatePartial(void);
   void powerDown();
   void displayPartial(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);

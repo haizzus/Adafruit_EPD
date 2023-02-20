@@ -10,11 +10,11 @@ public:
   GDEW0097T50(int16_t SID, int16_t SCLK, int16_t DC, int16_t RST,
                         int16_t CS, int16_t SRCS, int16_t MISO,
                         int16_t BUSY = -1)
-      : JD79651(200, 200, SID, SCLK, DC, RST, CS, SRCS, MISO, BUSY){};
+      : JD79651(184, 88, SID, SCLK, DC, RST, CS, SRCS, MISO, BUSY){};
 
   GDEW0097T50(int16_t DC, int16_t RST, int16_t CS, int16_t SRCS,
                         int16_t BUSY = -1, SPIClass *spi = &SPI)
-      : JD79651(200, 200, DC, RST, CS, SRCS, BUSY, spi){};
+      : JD79651(184, 88, DC, RST, CS, SRCS, BUSY, spi){};
 
   void begin(thinkinkmode_t mode = THINKINK_MONO) {
     JD79651::begin(true);
@@ -31,8 +31,9 @@ public:
     layer_colors[EPD_DARK] = 0b01;
 
     default_refresh_delay = 1000;
-    setRotation(3);
-    powerDown();
+    // setRotation(3);
+    // powerDown();
+    priv_setup();
   }
 };
 
